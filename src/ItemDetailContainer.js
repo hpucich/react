@@ -1,26 +1,38 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Array_Productos from "./Array_productos"
-import ItemList from "./ItemList"
+import ItemDetail from "./ItemDetail"
 
 const productos=Array_Productos
 
-const ItemListContainer = (props) => {
+
+    let array_individual={Id:Array_Productos[0].id, 
+        nombre:Array_Productos[0].nombre,
+        precio: Array_Productos[0].precio,
+        imagen: Array_Productos[0].imagen
+    }
+
+
+console.log(array_individual)
+
+
+
+const ItemDetailContainer = (props) => {
     
     const [loading, setLoading] = useState(true)
 
-    const [productos, setProductos] = useState([])
+    const [producto_individual, setProductoIndividual] = useState([])
 
     useEffect(()=>{
         const promesa = new Promise((res,rej)=>{
             setTimeout(()=>{
-                res(Array_Productos)
+                res(array_individual)
             },3000)
         })
 
         promesa
         .then((respuestaDeLaApi)=>{
-            setProductos(Array_Productos)
+            setProductoIndividual(array_individual)
         })
         .catch((errorDeLaApi)=>{
             console.log(errorDeLaApi)
@@ -35,14 +47,13 @@ const ItemListContainer = (props) => {
 
     })
 
-    console.log(Array_Productos)
 
     return (
         <>
-            <p>{loading ? "Cargando..." : "Ya tenes los productos"}</p>
-            <ItemList productos={Array_Productos}/>
+            <p>{loading ? "Cargando..." : "Ya tenes el producto"}</p>
+            <ItemDetail producto_individual={array_individual}/>
         </>
     )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer

@@ -1,30 +1,18 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import Main from "./Main";
-import Main1 from "./Main1";
-import ItemListContainer from "./ItemListContainer";
+//import Main1 from "./Main1";
+//import ItemCount from "./ItemCount";
+//import ItemListContainer from "./ItemListContainer2";
 
 function App() {
-    const edad=56 //numero
-    const usuarios=["Juan", "Pedro","Maria"] //array
-    const miOnAdd = () => {} //funcion
+   
     return (
         <>
             <Header/>
-            <ItemListContainer/>
-            <Main 
-            nombre='Hernan'
-            apellido='pucich' 
-            onAdd={miOnAdd} 
-            edad={edad} 
-            usuarios={usuarios} 
-            initial={1}>
-                <p>Hola Mundo</p>
-                <p>Hola Mundo Dos</p>
-            </Main>
-            <Main1>
-                
-            </Main1>
+            <Main/>
+
+          
             <Footer/>
         </>
     )
@@ -54,6 +42,10 @@ function App() {
 export default App
 
 /* https://github.com/HoracioGutierrez/comision_25470
+/* https://reactrouter.com/docs/en/v6/api
+/* https://tympanus.net/Development/CreativeLinkEffects/
+
+
 
 /*
 <Main 
