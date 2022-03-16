@@ -1,23 +1,32 @@
+
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import array_productos from "./Array_productos"
 import Array_Productos from "./Array_productos"
 import ItemDetail from "./ItemDetail"
 
 const productos=Array_Productos
 
 
-    let array_individual={Id:Array_Productos[0].id, 
-        nombre:Array_Productos[0].nombre,
-        precio: Array_Productos[0].precio,
-        imagen: Array_Productos[0].imagen
-    }
-
-
-console.log(array_individual)
 
 
 
 const ItemDetailContainer = (props) => {
+  let array_individual=[]
+    const{id}=useParams()
+    console.log(id)
+       
+    for (let i=0;i<array_productos.length;i++){
+        if(array_productos[i].id==id){
+            array_individual={Id:Array_Productos[i].id, 
+                nombre:Array_Productos[i].nombre,
+                precio: Array_Productos[i].precio,
+                imagen: Array_Productos[i].imagen
+            }
+        break
+        }
+    }
+       
     
     const [loading, setLoading] = useState(true)
 
@@ -26,6 +35,7 @@ const ItemDetailContainer = (props) => {
     useEffect(()=>{
         const promesa = new Promise((res,rej)=>{
             setTimeout(()=>{
+                console.log("id gggg"+id)
                 res(array_individual)
             },3000)
         })

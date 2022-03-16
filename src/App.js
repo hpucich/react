@@ -1,6 +1,8 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import Main from "./Main";
+import {BrowserRouter} from "react-router-dom"
+import {ToastContainer} from "react-toastify"
 //import Main1 from "./Main1";
 //import ItemCount from "./ItemCount";
 //import ItemListContainer from "./ItemListContainer2";
@@ -8,13 +10,14 @@ import Main from "./Main";
 function App() {
    
     return (
-        <>
+        <BrowserRouter>
             <Header/>
-            <Main/>
+            <Main nombre="Hernan" apellido="Pucich"/>
 
           
             <Footer/>
-        </>
+            <ToastContainer/>
+        </BrowserRouter>
     )
 
     /*    
