@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import ItemListContainer from "./ItemListContainer"
 import ItemDetailContainer from "./ItemDetailContainer";
 import Main1 from "./Main1"
-
+import Carrito from "./Carrito";
 const Main = (props) => {
 
 return(
@@ -12,6 +12,7 @@ return(
     <Routes>
       <Route path="/" element={<ItemListContainer/>}/>
       <Route path="/productos/:id" element={<ItemDetailContainer/>}/>
+      <Route path="/carrito" element={<Carrito/>}/>
     </Routes>
     
 </main>
